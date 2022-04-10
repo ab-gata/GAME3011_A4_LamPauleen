@@ -26,6 +26,11 @@ public class GameController : MonoBehaviour
     [SerializeField]
     Sprite hardGuide;
 
+    // WinLose UI
+    [SerializeField, Header("Win/Lose UI")]
+    GameObject winLoseUI;
+    
+
     // Cube components
     [SerializeField, Header("CubeSets")]
     private GameObject cubeSetLayer1;
@@ -131,11 +136,11 @@ public class GameController : MonoBehaviour
 
         if (errors)
         {
-            Debug.Log("NO WIN");
+            winLoseUI.GetComponent<WinLoseObject>().ShowLose();
         }
         else
         {
-            Debug.Log("WIN!!!");
+            winLoseUI.GetComponent<WinLoseObject>().ShowWin();
         }
     }
 
@@ -152,6 +157,9 @@ public class GameController : MonoBehaviour
         {
             item.ResetButton();
         }
+
+        // Clear winLoseUI
+        winLoseUI.GetComponent<WinLoseObject>().Clear();
     }
 
     void DropdownValueChanged(Dropdown change)
@@ -173,6 +181,8 @@ public class GameController : MonoBehaviour
                 image.sprite = hardGuide;
                 break;
         }
+
+        ResetGame();
     }
 
     private void CreateSolutions()

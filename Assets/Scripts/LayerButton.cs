@@ -49,5 +49,6 @@ public class LayerButton : MonoBehaviour
     public void ResetButton()
     {
         buttonImage.color = normalColour;
+        active = false;
     }
 }
