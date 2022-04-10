@@ -178,38 +178,38 @@ public class GameController : MonoBehaviour
     private void CreateSolutions()
     {
         // Create EASY SOLUTION
-        easySolution.Add(true); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
+        easySolution.Add(true); easySolution.Add(true); easySolution.Add(true); easySolution.Add(true);
+        easySolution.Add(true); easySolution.Add(false); easySolution.Add(false); easySolution.Add(true);
+        easySolution.Add(true); easySolution.Add(true); easySolution.Add(true); easySolution.Add(true);
+
         easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
+        easySolution.Add(true); easySolution.Add(false); easySolution.Add(false); easySolution.Add(true);
         easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
 
         easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
-        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
-        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
-
-        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
-        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
+        easySolution.Add(true); easySolution.Add(false); easySolution.Add(false); easySolution.Add(true);
         easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
  
-        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
-        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
-        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
+        easySolution.Add(true); easySolution.Add(true); easySolution.Add(true); easySolution.Add(true);
+        easySolution.Add(true); easySolution.Add(true); easySolution.Add(true); easySolution.Add(true);
+        easySolution.Add(true); easySolution.Add(true); easySolution.Add(true); easySolution.Add(true);
 
         // Create MEDIUM SOLUTION
-        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
-        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
-        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
-
-        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
-        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
-        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
-
-        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
-        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
-        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
-
-        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
-        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
-        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
+        mediumSolution.Add(true); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(true);
+        mediumSolution.Add(true); mediumSolution.Add(true); mediumSolution.Add(false); mediumSolution.Add(true);
+        mediumSolution.Add(true); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(true);
+                           
+        mediumSolution.Add(true); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
+        mediumSolution.Add(true); mediumSolution.Add(true); mediumSolution.Add(false); mediumSolution.Add(false);
+        mediumSolution.Add(true); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
+                           
+        mediumSolution.Add(true); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
+        mediumSolution.Add(true); mediumSolution.Add(false); mediumSolution.Add(true); mediumSolution.Add(false);
+        mediumSolution.Add(true); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
+                           
+        mediumSolution.Add(true); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(true);
+        mediumSolution.Add(true); mediumSolution.Add(false); mediumSolution.Add(true); mediumSolution.Add(true);
+        mediumSolution.Add(true); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(true);
 
         // Create HARD SOLUTION
         hardSolution.Add(false); hardSolution.Add(true); hardSolution.Add(true); hardSolution.Add(false);
