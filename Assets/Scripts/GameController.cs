@@ -4,15 +4,189 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    enum Difficulty
+    { 
+        EASY,
+        MEDIUM,
+        HARD
+    }
+
+    // Cube components
+    [SerializeField]
+    private GameObject cubeSetLayer1;
+    [SerializeField]
+    private GameObject cubeSetLayer2;
+    [SerializeField]
+    private GameObject cubeSetLayer3;
+    [SerializeField]
+    private GameObject cubeSetLayer4;
+
+    // Layer button components
+    [SerializeField]
+    private GameObject buttonGrid1;
+    [SerializeField]
+    private GameObject buttonGrid2;
+    [SerializeField]
+    private GameObject buttonGrid3;
+    [SerializeField]
+    private GameObject buttonGrid4;
+
+    // List of all cubes/buttons
+    private List<GameObject> cubeSet = new List<GameObject>();
+    private List<LayerButton> buttons = new List<LayerButton>();
+
+    // List of bools for each solution
+    private List<bool> easySolution = new List<bool>();
+    private List<bool> mediumSolution = new List<bool>();
+    private List<bool> hardSolution = new List<bool>();
+
+    // Player difficulty setting
+    private Difficulty difficulty = Difficulty.EASY;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Add all cubes to one list
+        foreach (Transform child in cubeSetLayer1.transform)
+        {
+            cubeSet.Add(child.gameObject);
+        }
+        foreach (Transform child in cubeSetLayer2.transform)
+        {
+            cubeSet.Add(child.gameObject);
+        }
+        foreach (Transform child in cubeSetLayer3.transform)
+        {
+            cubeSet.Add(child.gameObject);
+        }
+        foreach (Transform child in cubeSetLayer4.transform)
+        {
+            cubeSet.Add(child.gameObject);
+        }
+
+        // Add all buttons to one list
+        foreach (Transform child in buttonGrid1.transform)
+        {
+            buttons.Add(child.GetComponent<LayerButton>());
+        }
+        foreach (Transform child in buttonGrid2.transform)
+        {
+            buttons.Add(child.GetComponent<LayerButton>());
+        }
+        foreach (Transform child in buttonGrid3.transform)
+        {
+            buttons.Add(child.GetComponent<LayerButton>());
+        }
+        foreach (Transform child in buttonGrid4.transform)
+        {
+            buttons.Add(child.GetComponent<LayerButton>());
+        }
+
+        CreateSolutions();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CheckSolution()
     {
-        
+        List<bool> solution = new List<bool>();
+        bool errors = false;
+
+        switch (difficulty)
+        {
+            case Difficulty.EASY:
+                solution = easySolution;
+                break;
+            case Difficulty.MEDIUM:
+                solution = mediumSolution;
+                break;
+            case Difficulty.HARD:
+                solution = hardSolution;
+                break;
+        }
+
+        for (int i = 0; i < solution.Count; i++)
+        {
+            if (solution[i] != cubeSet[i].activeSelf)
+            {
+                errors = true;
+            }
+        }
+
+        if (errors)
+        {
+            Debug.Log("NO WIN");
+        }
+        else
+        {
+            Debug.Log("WIN!!!");
+        }
+    }
+
+    public void ResetGame()
+    {
+        // Clear cubes
+        foreach (var item in cubeSet)
+        {
+            item.SetActive(false);
+        }
+
+        // Clear buttons
+        foreach (var item in buttons)
+        {
+            item.ResetButton();
+        }
+    }
+
+    private void CreateSolutions()
+    {
+        // Create EASY SOLUTION
+        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
+        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
+        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
+
+        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
+        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
+        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
+
+        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
+        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
+        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
+ 
+        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
+        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
+        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
+
+        // Create MEDIUM SOLUTION
+        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
+        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
+        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
+
+        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
+        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
+        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
+
+        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
+        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
+        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
+
+        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
+        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
+        mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
+
+        // Create HARD SOLUTION
+        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
+        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
+        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
+
+        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
+        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
+        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
+
+        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
+        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
+        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
+
+        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
+        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
+        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
     }
 }

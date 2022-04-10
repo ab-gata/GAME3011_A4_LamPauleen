@@ -45,4 +45,9 @@ public class LayerButton : MonoBehaviour
         // Show/hide cube
         cube.SetActive(active);
     }
+
+    public void ResetButton()
+    {
+        buttonImage.color = normalColour;
+    }
 }
