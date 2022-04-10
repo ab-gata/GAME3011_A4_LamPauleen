@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -11,8 +12,22 @@ public class GameController : MonoBehaviour
         HARD
     }
 
-    // Cube components
+    // UI Guide Elements
+    [SerializeField, Header("UI Elements")]
+    Dropdown dropdown;
     [SerializeField]
+    Image image;
+
+    // Guide images
+    [SerializeField, Header("Guide Images")]
+    Sprite easyGuide;
+    [SerializeField]
+    Sprite mediumGuide;
+    [SerializeField]
+    Sprite hardGuide;
+
+    // Cube components
+    [SerializeField, Header("CubeSets")]
     private GameObject cubeSetLayer1;
     [SerializeField]
     private GameObject cubeSetLayer2;
@@ -22,7 +37,7 @@ public class GameController : MonoBehaviour
     private GameObject cubeSetLayer4;
 
     // Layer button components
-    [SerializeField]
+    [SerializeField, Header("Buttons")]
     private GameObject buttonGrid1;
     [SerializeField]
     private GameObject buttonGrid2;
@@ -83,6 +98,9 @@ public class GameController : MonoBehaviour
         }
 
         CreateSolutions();
+
+        // Add dropdown listener
+        dropdown.onValueChanged.AddListener(delegate { DropdownValueChanged(dropdown); });
     }
 
     public void CheckSolution()
@@ -133,6 +151,23 @@ public class GameController : MonoBehaviour
         foreach (var item in buttons)
         {
             item.ResetButton();
+        }
+    }
+
+    void DropdownValueChanged(Dropdown change)
+    {
+        Debug.Log(change.value);
+
+        switch (change.value)
+        {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            default:
+                break;
         }
     }
 
@@ -188,5 +223,12 @@ public class GameController : MonoBehaviour
         hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
         hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
         hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
+    }
+
+
+    // Remove listener just in case...
+    private void OnDestroy()
+    {
+        dropdown.onValueChanged.RemoveListener(delegate { DropdownValueChanged(dropdown); });
     }
 }
