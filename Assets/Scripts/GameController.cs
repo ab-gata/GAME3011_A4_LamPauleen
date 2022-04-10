@@ -62,11 +62,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         // Add all cubes to one list
-        foreach (Transform child in cubeSetLayer1.transform)
-        {
-            cubeSet.Add(child.gameObject);
-        }
-        foreach (Transform child in cubeSetLayer2.transform)
+        foreach (Transform child in cubeSetLayer4.transform)
         {
             cubeSet.Add(child.gameObject);
         }
@@ -74,17 +70,17 @@ public class GameController : MonoBehaviour
         {
             cubeSet.Add(child.gameObject);
         }
-        foreach (Transform child in cubeSetLayer4.transform)
+        foreach (Transform child in cubeSetLayer2.transform)
+        {
+            cubeSet.Add(child.gameObject);
+        }
+        foreach (Transform child in cubeSetLayer1.transform)
         {
             cubeSet.Add(child.gameObject);
         }
 
         // Add all buttons to one list
-        foreach (Transform child in buttonGrid1.transform)
-        {
-            buttons.Add(child.GetComponent<LayerButton>());
-        }
-        foreach (Transform child in buttonGrid2.transform)
+        foreach (Transform child in buttonGrid4.transform)
         {
             buttons.Add(child.GetComponent<LayerButton>());
         }
@@ -92,7 +88,11 @@ public class GameController : MonoBehaviour
         {
             buttons.Add(child.GetComponent<LayerButton>());
         }
-        foreach (Transform child in buttonGrid4.transform)
+        foreach (Transform child in buttonGrid2.transform)
+        {
+            buttons.Add(child.GetComponent<LayerButton>());
+        }
+        foreach (Transform child in buttonGrid1.transform)
         {
             buttons.Add(child.GetComponent<LayerButton>());
         }
@@ -161,12 +161,16 @@ public class GameController : MonoBehaviour
         switch (change.value)
         {
             case 0:
+                difficulty = Difficulty.EASY;
+                image.sprite = easyGuide;
                 break;
             case 1:
+                difficulty = Difficulty.MEDIUM;
+                image.sprite = mediumGuide;
                 break;
             case 2:
-                break;
-            default:
+                difficulty = Difficulty.HARD;
+                image.sprite = hardGuide;
                 break;
         }
     }
@@ -174,7 +178,7 @@ public class GameController : MonoBehaviour
     private void CreateSolutions()
     {
         // Create EASY SOLUTION
-        easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
+        easySolution.Add(true); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
         easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
         easySolution.Add(false); easySolution.Add(false); easySolution.Add(false); easySolution.Add(false);
 
@@ -208,21 +212,21 @@ public class GameController : MonoBehaviour
         mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false); mediumSolution.Add(false);
 
         // Create HARD SOLUTION
-        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
-        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
-        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
+        hardSolution.Add(false); hardSolution.Add(true); hardSolution.Add(true); hardSolution.Add(false);
+        hardSolution.Add(true); hardSolution.Add(false); hardSolution.Add(true); hardSolution.Add(true);
+        hardSolution.Add(true); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(true);
 
-        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
-        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
-        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
+        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(true); hardSolution.Add(false);
+        hardSolution.Add(true); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
+        hardSolution.Add(true); hardSolution.Add(true); hardSolution.Add(true); hardSolution.Add(true);
 
-        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
-        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
-        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
+        hardSolution.Add(true); hardSolution.Add(true); hardSolution.Add(true); hardSolution.Add(false);
+        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(true);
+        hardSolution.Add(true); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(true);
 
-        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
-        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
-        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
+        hardSolution.Add(true); hardSolution.Add(true); hardSolution.Add(false); hardSolution.Add(false);
+        hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(true);
+        hardSolution.Add(true); hardSolution.Add(false); hardSolution.Add(false); hardSolution.Add(false);
     }
 
 
